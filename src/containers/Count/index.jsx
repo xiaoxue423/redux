@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-//引入Count的UI组件
-import CountUI from "../../compoents/Count";
 //引入redux
 import { increment, decrement, incrementAsync } from "../../redux/count_action";
 //引入connect用于连接UI组件与redux
@@ -12,6 +10,29 @@ import { connect } from "react-redux";
 //1、mapDispatchToProps函数返回的是一个对象
 //2、返回的对象中的key就作为传递给UI组件props的key，value就作为传递给UI组件props的value
 //3、mapDispatchToProps用于传递操作状态的方法
+
+class CountUI extends Component {
+    add = () => {
+      this.props.increment(1)
+    };
+    decrement = () => {
+      this.props.decrement(2)
+    };
+    addAsync = ()=>{
+      this.props.incrementAsync(3,2000)
+    }
+    render() {
+      return (
+        <div>
+          <h1>我是Count组件</h1>
+          <h1>和为{this.props.count}</h1>
+          <button onClick={this.add}>+1</button>
+          <button onClick={this.decrement}>-2</button>
+          <button onClick={this.addAsync}>异步+3</button>
+        </div>
+      );
+    }
+  }
 
 const CountContainer = connect(
   (state) => ({ count: state }),
