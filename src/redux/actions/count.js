@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT } from "./constant";
+import { INCREMENT, DECREMENT } from "../constant";
 
 export const increment = (data) => ({ type: INCREMENT, data });
 

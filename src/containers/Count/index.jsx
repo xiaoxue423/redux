@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 //引入redux
-import { increment, decrement, incrementAsync } from "../../redux/count_action";
+import { increment, decrement, incrementAsync } from "../../redux/actions/count";
 //引入connect用于连接UI组件与redux
 import { connect } from "react-redux";
 //1、mapStateToProps函数返回的是一个对象；
