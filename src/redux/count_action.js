@@ -1,14 +1,14 @@
 import { INCREMENT, DECREMENT } from "./constant";
-import store from './store'
 
 export const increment = (data) => ({ type: INCREMENT, data });
 
 export const decrement = (data) => ({ type: DECREMENT, data });
 
+// 异步action就是指action函数的返回值为函数,异步action中一般都会调用同步action。
 export const incrementAsync = (data, time) => {
-  return () => {
+  return (dispatch) => {
     setTimeout(() => {
-        store.dispatch(increment(data));
+        dispatch(increment(data));
     }, time);
   };
 };
