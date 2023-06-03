@@ -1,25 +1,23 @@
 import React, { Component } from "react";
-import store from "../../redux/store";
-import {increment,decrement,incrementAsync} from '../../redux/count_action'
 
 export default class index extends Component {
   add = () => {
-    store.dispatch(increment(1));
+    this.props.increment(1)
   };
   decrement = () => {
-    store.dispatch(decrement(1));
+    this.props.decrement(2)
   };
   addAsync = ()=>{
-    store.dispatch(incrementAsync(1,2000));
+    this.props.incrementAsync(3,2000)
   }
   render() {
     return (
       <div>
         <h1>我是Count组件</h1>
-        <h1>和为{store.getState()}</h1>
+        <h1>和为{this.props.count}</h1>
         <button onClick={this.add}>+1</button>
-        <button onClick={this.decrement}>-1</button>
-        <button onClick={this.addAsync}>异步+1</button>
+        <button onClick={this.decrement}>-2</button>
+        <button onClick={this.addAsync}>异步+3</button>
       </div>
     );
   }
