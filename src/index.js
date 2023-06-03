@@ -12,14 +12,13 @@ root.render(
   </React.StrictMode>
 );
 
-store.subscribe(()=>{
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
-  
-})
+// store.subscribe(()=>{
+//   root.render(
+//     <React.StrictMode>
+//       <App />
+//     </React.StrictMode>
+//   );
+// })
 
 
 reportWebVitals();
