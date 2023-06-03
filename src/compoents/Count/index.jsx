@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import store from "../../redux/store";
-import {increment,decrement} from '../../redux/count_action'
+import {increment,decrement,incrementAsync} from '../../redux/count_action'
 
 export default class index extends Component {
   add = () => {
@@ -9,6 +9,9 @@ export default class index extends Component {
   decrement = () => {
     store.dispatch(decrement(1));
   };
+  addAsync = ()=>{
+    store.dispatch(incrementAsync(1,2000));
+  }
   render() {
     return (
       <div>
@@ -16,6 +19,7 @@ export default class index extends Component {
         <h1>和为{store.getState()}</h1>
         <button onClick={this.add}>+1</button>
         <button onClick={this.decrement}>-1</button>
+        <button onClick={this.addAsync}>异步+1</button>
       </div>
     );
   }
